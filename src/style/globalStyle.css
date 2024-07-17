@@ -106,7 +106,9 @@ nav,
 section {
   display: block;
 }
+html,
 body {
+  height: 100%;
   line-height: 1;
   background-color: #e9f1ff;
 }

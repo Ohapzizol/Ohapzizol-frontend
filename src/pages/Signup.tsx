@@ -3,7 +3,7 @@ import { Button, Input, Template } from '@/components';
 
 const SignupPage = () => {
   return (
-    <Template>
+    <Template style={{height: '100vh'}}>
       <Container>
         <Wrapper>
           <Title>회원가입</Title>
