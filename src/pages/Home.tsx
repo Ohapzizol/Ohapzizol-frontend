@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Calendar, LineChart, PieChart, Template } from '@/components';
+import { Link } from 'react-router-dom';
 
 const CalendarComponents = () => {
   return (
@@ -12,7 +13,9 @@ const CalendarComponents = () => {
         <Calendar>
           <CalendarTitleBox>
             <CalendarTitle>캘린더</CalendarTitle>
-            <CalendarButton>지출 작성하기</CalendarButton>
+            <Link to='/write'>
+              <CalendarButton>지출 작성하기</CalendarButton>
+            </Link>
           </CalendarTitleBox>
           <Calendar.Header />
           <Calendar.Body />
