@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Button, GoBackHeader, Input, Template } from '@/components';
 import { useForm } from '@/hooks/useForm';
-import { SingupPropsType, useSignup } from '@/apis/signup/useSignup';
+import { SingupPropsType, useSignup } from '@/apis';
 
 const SignupPage = () => {
   const { form, handleChange } = useForm<SingupPropsType>({

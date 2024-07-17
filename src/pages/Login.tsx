@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Button, GoBackHeader, Input, Template } from '@/components';
 import { useForm } from '@/hooks/useForm';
-import { LoginRequsetType, useLogin } from '@/apis/login/useLogin';
+import { LoginRequsetType, useLogin } from '@/apis';
 
 const SignupPage = () => {
   const { form, handleChange } = useForm<LoginRequsetType>({

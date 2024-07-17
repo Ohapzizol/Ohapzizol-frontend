@@ -1,15 +1,22 @@
 import styled from 'styled-components';
 import { Calendar, LineChart, PieChart, Template } from '@/components';
 import { Link } from 'react-router-dom';
+import { useGetComment, useGetPredictComment } from '@/apis';
 
 const CalendarComponents = () => {
+  const { data: comment } = useGetComment();
+  const { data: predictComment } = useGetPredictComment();
   return (
     <Template>
       <Wrapper>
         <NameWrapper>
-          <NameTag>김정현</NameTag> <IdTag>kimjh11130</IdTag>
+          <NameTag>{comment?.name}</NameTag> <IdTag>{comment?.nickname}</IdTag>
         </NameWrapper>
-        <CommentBox>너는 가계부 작성해도 길거리에 눌러 앉을거 같다</CommentBox>
+        <CommentBox>
+          {comment?.balance}
+          <br />
+          {predictComment?.predict}
+        </CommentBox>
         <Calendar>
           <CalendarTitleBox>
             <CalendarTitle>캘린더</CalendarTitle>
