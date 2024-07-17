@@ -1,10 +1,23 @@
-import styled from 'styled-components';
-import { Button, GoBackHeader, Input, Template } from '@/components';
-import { TimePicker } from 'antd';
 import { useState } from 'react';
+import styled from 'styled-components';
+import { useForm } from '@/hooks/useForm';
+import { Button, GoBackHeader, Input, Template } from '@/components';
+import { PostPaymentType, usePostPayment } from '@/apis';
 
 const WritePage = () => {
-  const [isIncome, setIsIncome] = useState(true);
+  const [typ, setTyp] = useState('1');
+  const { form, handleChange } = useForm<Omit<PostPaymentType, 'typ'>>({
+    title: '',
+    value: 0,
+    description: '',
+    time: '',
+    tag: '',
+  });
+
+  const { title, value, description, time, tag } = form;
+
+  const { mutate } = usePostPayment();
+
   return (
     <Template style={{ height: '100vh' }}>
       <GoBackHeader />
@@ -12,36 +25,66 @@ const WritePage = () => {
         <Wrapper>
           <Title>작성하기</Title>
           <InputWrapper>
-            <Input label='이름' />
+            <Input
+              name='title'
+              value={title}
+              onChange={handleChange}
+              label='이름'
+            />
             <Stack>
               <TextareaTitle>시간</TextareaTitle>
-              <TimePicker />
+              <TimeInput
+                type='time'
+                name='time'
+                value={time}
+                onChange={handleChange}
+              />
             </Stack>
-            <Input label='태그' />
+            <Input
+              name='tag'
+              value={tag}
+              onChange={handleChange}
+              label='태그'
+            />
             <Stack>
               <ButtonWrapper>
                 <CashButton
-                  $isSelected={isIncome}
-                  onClick={() => setIsIncome(true)}
+                  $isSelected={typ === '1'}
+                  onClick={() => setTyp('1')}
                 >
                   수입
                 </CashButton>
                 <CashButton
-                  $isSelected={!isIncome}
-                  onClick={() => setIsIncome(false)}
+                  $isSelected={typ === '2'}
+                  onClick={() => setTyp('2')}
                 >
                   지출
                 </CashButton>
               </ButtonWrapper>
-              <Input label='비용' unit={isIncome ? '수입' : '지출'} />
+              <Input
+                name='value'
+                value={value}
+                onChange={handleChange}
+                label='비용'
+                unit={typ === '1' ? '수입' : '지출'}
+              />
             </Stack>
             <Stack>
               <TextareaTitle>설명</TextareaTitle>
-              <Textarea />
+              <Textarea
+                name='description'
+                value={description}
+                onChange={handleChange}
+              />
             </Stack>
           </InputWrapper>
         </Wrapper>
-        <Button>작성완료</Button>
+        <Button
+          disabled={!title || !value || !time}
+          onClick={() => mutate({ ...form, typ })}
+        >
+          작성완료
+        </Button>
       </Container>
     </Template>
   );
@@ -118,7 +161,6 @@ const TextareaTitle = styled.span`
 
 const Textarea = styled.textarea`
   resize: none;
-  width: 100%;
   height: 100px;
   border: 1px solid ${({ theme }) => theme.gray4};
   border-radius: 5px;
@@ -132,4 +174,11 @@ const Textarea = styled.textarea`
     color: ${({ theme }) => theme.gray5};
     font-size: 16px;
   }
+`;
+
+const TimeInput = styled.input`
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid gray;
+  background-color: transparent;
 `;

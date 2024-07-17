@@ -16,7 +16,10 @@ const Input = ({ label, unit, value, ...props }: InputProps) => {
 
   return (
     <_.InputWrapper>
-      <_.AgeLabel $isFocused={isFocused} $isTop={isFocused || !!value}>
+      <_.AgeLabel
+        $isFocused={isFocused}
+        $isTop={typeof value === 'number' || isFocused || !!value}
+      >
         {label}
       </_.AgeLabel>
       <p>{unit}</p>
