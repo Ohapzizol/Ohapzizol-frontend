@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Input, Template } from '@/components';
+import { Button, GoBackHeader, Input, Template } from '@/components';
 import { TimePicker } from 'antd';
 import { useState } from 'react';
 
@@ -7,6 +7,7 @@ const WritePage = () => {
   const [isIncome, setIsIncome] = useState(true);
   return (
     <Template style={{ height: '100vh' }}>
+      <GoBackHeader />
       <Container>
         <Wrapper>
           <Title>작성하기</Title>

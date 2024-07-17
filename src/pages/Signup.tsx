@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { Button, Input, Template } from '@/components';
+import { Button, GoBackHeader, Input, Template } from '@/components';
 
 const SignupPage = () => {
   return (
     <Template style={{ height: '100vh' }}>
+      <GoBackHeader />
       <Container>
         <Wrapper>
           <Title>회원가입</Title>
