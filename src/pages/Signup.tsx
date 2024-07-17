@@ -3,7 +3,7 @@ import { Button, Input, Template } from '@/components';
 
 const SignupPage = () => {
   return (
-    <Template style={{height: '100vh'}}>
+    <Template style={{ height: '100vh' }}>
       <Container>
         <Wrapper>
           <Title>회원가입</Title>
@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 32px;
   width: 100%;
   height: 100%;
 `;

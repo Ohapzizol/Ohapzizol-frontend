@@ -25,7 +25,7 @@ export const AgeLabel = styled.label<AgeLabelProps>`
 
 export const Input = styled.input`
   width: 100%;
-  margin-top: 60px;
+  margin-top: 30px;
   padding-bottom: 8px;
   padding-left: 8px;
   border-bottom: 2px solid gray;
