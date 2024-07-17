@@ -1,26 +1,35 @@
 import styled from 'styled-components';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useGetPayment } from '@/apis';
 import { CashCard, Template, GoBackHeader } from '@/components';
 
 const SignupPage = () => {
+  const params = useParams();
+  const navigate = useNavigate();
+  const { data } = useGetPayment(params.date!);
+  if (!data) {
+    navigate(-1);
+    return false;
+  }
   return (
     <Template>
       <GoBackHeader />
       <Container>
         <Title>하루 정산하기</Title>
         <Stack gap={8}>
-          <Text>현재 자산: 82,800원</Text>
+          <Text>현재 자산: {data?.balance}원</Text>
           <SubText>
-            순수익: <span>12345원</span>
+            순수익: <span>{data?.profit}원</span>
           </SubText>
         </Stack>
         <div style={{ width: '100%', backgroundColor: 'white' }}>
           <CashHeader>
-            <div>총: 17개</div>
-            <div>2024-07-24</div>
+            <div>총: {data?.payments.length}개</div>
+            <div>{params.date}</div>
           </CashHeader>
-          <CashCard />
-          <CashCard />
-          <CashCard />
+          {data?.payments.map((item) => (
+            <CashCard key={item.id} {...item} />
+          ))}
         </div>
       </Container>
     </Template>

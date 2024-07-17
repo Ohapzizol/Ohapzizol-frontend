@@ -47,7 +47,3 @@ export const HStack = styled.div<{ align: string }>`
 export const Cash = styled.div`
   font-size: 16px;
 `;
-
-export const AllOfMoney = styled.div`
-  font-size: 14px;
-`;
