@@ -7,8 +7,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export interface AgeLabelProps {
-  isFocused: boolean;
-  isTop: boolean;
+  $isFocused: boolean;
+  $isTop: boolean;
 }
 
 const Input = ({ label, unit, value, ...props }: InputProps) => {
@@ -16,7 +16,7 @@ const Input = ({ label, unit, value, ...props }: InputProps) => {
 
   return (
     <_.InputWrapper>
-      <_.AgeLabel isFocused={isFocused} isTop={isFocused || !!value}>
+      <_.AgeLabel $isFocused={isFocused} $isTop={isFocused || !!value}>
         {label}
       </_.AgeLabel>
       <p>{unit}</p>

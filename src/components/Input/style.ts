@@ -17,9 +17,9 @@ export const InputWrapper = styled.label`
 
 export const AgeLabel = styled.label<AgeLabelProps>`
   position: absolute;
-  bottom: ${({ isTop }) => (isTop ? '2.5rem' : '1rem')};
+  bottom: ${({ $isTop }) => ($isTop ? '2.5rem' : '1rem')};
   font-size: 12px;
-  color: ${({ theme, isFocused }) => (isFocused ? theme.primary1 : 'gray')};
+  color: ${({ theme, $isFocused }) => ($isFocused ? theme.primary1 : 'gray')};
   transition: all 0.25s ease-in-out;
 `;
 
