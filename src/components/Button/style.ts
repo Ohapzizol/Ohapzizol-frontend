@@ -30,4 +30,7 @@ export const ButtonWrapper = styled.button`
   border-radius: 8px;
   font-size: 16px;
   color: white;
+  &:disabled {
+    background-color: ${({ theme }) => theme.gray3};
+  }
 `;

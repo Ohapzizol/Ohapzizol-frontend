@@ -17,12 +17,13 @@ const Input = ({ label, unit, value, ...props }: InputProps) => {
   return (
     <_.InputWrapper>
       <_.AgeLabel isFocused={isFocused} isTop={isFocused || !!value}>
-        {label} 
+        {label}
       </_.AgeLabel>
       <p>{unit}</p>
       <_.Input
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        value={value}
         {...props}
       />
     </_.InputWrapper>

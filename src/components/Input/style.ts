@@ -3,7 +3,7 @@ import { AgeLabelProps } from '.';
 
 export const InputWrapper = styled.label`
   position: relative;
-  width: 336px;
+  width: 436px;
   p {
     position: absolute;
     right: 8px;
