@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import { Calendar, LineChart, PieChart, Template } from '@/components';
+import {
+  Calendar,
+  LineChart,
+  PieChartOne,
+  PieChartTwo,
+  Template,
+} from '@/components';
 import { Link } from 'react-router-dom';
 import { useGetComment, useGetPredictComment } from '@/apis';
 
@@ -25,10 +31,11 @@ const CalendarComponents = () => {
             </Link>
           </CalendarTitleBox>
           <Calendar.Header />
-          <Calendar.Body />
+          <Calendar.Body />x
         </Calendar>
         <LineChart />
-        <PieChart />
+        <PieChartOne />
+        <PieChartTwo />
       </Wrapper>
     </Template>
   );

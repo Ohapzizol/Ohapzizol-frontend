@@ -3,6 +3,7 @@ export { default as Button } from './Button';
 export { default as Calendar } from './Calendar';
 export { default as Template } from './Template';
 export { default as LineChart } from './Chart/LineChart';
-export { default as PieChart } from './Chart/PieChart';
+export { default as PieChartOne } from './Chart/PieChartOne';
+export { default as PieChartTwo } from './Chart/PieChartTwo';
 export { default as CashCard } from './CashCard';
 export { default as GoBackHeader } from './GobackHeader';
