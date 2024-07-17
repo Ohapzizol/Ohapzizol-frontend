@@ -1,5 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage, LoginPage, SignupPage, WritePage } from './pages';
+import {
+  DetailPage,
+  HomePage,
+  LoginPage,
+  SignupPage,
+  WritePage,
+} from './pages';
 
 const Router = () => {
   return (
@@ -8,6 +14,7 @@ const Router = () => {
       <Route path='/login' element={<LoginPage />} />
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/write' element={<WritePage />} />
+      <Route path='/detail' element={<DetailPage />} />
     </Routes>
   );
 };
