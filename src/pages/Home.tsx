@@ -31,7 +31,7 @@ const CalendarComponents = () => {
             </Link>
           </CalendarTitleBox>
           <Calendar.Header />
-          <Calendar.Body />x
+          <Calendar.Body />
         </Calendar>
         <LineChart />
         <PieChartOne />

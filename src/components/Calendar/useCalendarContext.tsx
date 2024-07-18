@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-interface DateInfo {
+export interface DateInfo {
   year: string;
   month: string;
   day: string;

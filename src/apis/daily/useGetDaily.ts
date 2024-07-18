@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { instance } from '../axios';
+import { DateInfo } from '@/components/Calendar/useCalendarContext';
 
 export type GetDailyType = {
   payments: [
@@ -12,8 +13,8 @@ export type GetDailyType = {
   ];
 };
 
-export const useGetDaily = (date: string) => {
-  const [year, month] = date.split('-');
+export const useGetDaily = (date: DateInfo) => {
+  const { year, month } = date;
   return useQuery({
     queryKey: ['daily', year, month],
     queryFn: async () => {

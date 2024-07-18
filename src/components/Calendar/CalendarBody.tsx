@@ -10,7 +10,12 @@ const CalendarBody = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const { data } = useGetDaily(selectedDate.date);
+  const { data } = useGetDaily(currentDate);
+
+  useEffect(() => {
+    setIsLoading(true);
+  }, [currentDate.month, currentDate.year]);
+
   useEffect(() => {
     if (data) setIsLoading(false);
   }, [data]);
